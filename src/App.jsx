@@ -3,7 +3,7 @@ import "./App.css"
 
 export default function App(){
     const arr=[
-                {pic : "https://www.pinkvilla.com/english/images/2022/12/1670149576_fitness-secrets-of-vijay-deverakonda-2.jpg",
+               {pic : "https://www.pinkvilla.com/english/images/2022/12/1670149576_fitness-secrets-of-vijay-deverakonda-2.jpg",
                  name : "THUNIVU",
                  rate : "8.5/10",
                  genre: "Action/Drama",
@@ -80,6 +80,8 @@ function Cine({photo,name,rating,genre,lan,about,hero,heroine,director,producer}
          </div>
     );
 }
+
+
 function Counter(){
     const[total,setLike]=useState(0)
     const[total1,setDisLike]=useState(0)
