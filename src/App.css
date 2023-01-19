@@ -1,64 +1,52 @@
-.dis{
-    display:flex;
-    justify-content: space-around;
-}
-.con1{
-    
-    background-color:#FF0099;
-    color:white;
-    border:2px solid rgb(247, 241, 241);
-    padding: 30px;
-    width:320px;
-    height:auto;
-}
-.like{
-    font-size: 20px;
-    background-color: chartreuse;
-    color:black;
-    width:80px;
-    height:60px;
-    border-radius: 20%;
-    border:1px solid white;
-}
-.dislike{
-    font-size: 20px;
-    background-color: chartreuse;
-    color:black;
-    width:80px;
-    height:60px;
-    border-radius: 20%;
-    border:1px solid white;
-}
 
-.pic{
-    width:320px;
-    height:400px;
-}
-.first{
-    font-size: 20px;
-    display: flex;
-    word-spacing:120px;
-}
-.sec{
-    font-size: 20px;
-    display: flex;
-    word-spacing:90px;
-}
-.cast{
-    font-size: 20px;
-}
-.heading{
-    color:black;
-}
-.li{
+
+.like{
     display: flex;
     justify-content: space-between;
+
 }
-.book{
- width:300px;
- height:50px;
- background-color: red;
- color:white;
- border: 1px solid white;
- border-radius: 20px;
+.likes{
+    background-color: chartreuse;
+    color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+    width:50px;
+    height:30px;
+  
+}
+.fir{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.movies{
+
+    background-color: orange;
+    width:340px;
+}
+.poster{
+    width:340px;
+    height:500px;
+    object-fit: cover;
+}
+.data{
+    padding:10px;
+}
+.name{
+margin: 0;
+}
+.rate{
+    margin: 0;
+}
+.movieslist{
+    /* display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap:20px; */
+    
+    display: grid;
+    /* RAM method (repeat auto-fit minmax() )*/
+    grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
+    gap:20px;
+    justify-items: center;
 }

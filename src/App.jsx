@@ -1,95 +1,127 @@
-import { useState } from "react";
+
+
 import "./App.css"
+import {useState} from "react";
 
 export default function App(){
-    const arr=[
-               {pic : "https://www.pinkvilla.com/english/images/2022/12/1670149576_fitness-secrets-of-vijay-deverakonda-2.jpg",
-                 name : "THUNIVU",
-                 rate : "8.5/10",
-                 genre: "Action/Drama",
-                 lan : "2D/Tamil",
-                 about : "A gang goes to rob a bank only to find that there`s already a criminal mastermind holding it for ransom, but his identities and motives behind the heist remains mysterious",
-                 hero: "Ajith",
-                 heroine:"manju",
-                 director:"vinoth",
-                 produce:"zee studios"
-                },
-                {pic : "https://i.pinimg.com/originals/07/ca/3d/07ca3dc7fcc227ed4a8230944122f1e5.jpg",
-                name : "VARISU",
-                rate : "8.1/10",
-                genre: "Action/Drama",
-                lan : "2D/Tamil",
-                about : "Vijay, The prodigal son of business tycoon Rajendran agrees to take over the reins of the business, much to the chagrin of his brothers. But can Vijay prove himself to be.",
-                hero: "Vijay",
-                heroine:"Rashmika",
-                director:"Vamsi",
-                produce:"thil raju"
-               },
-               {pic : "https://i.pinimg.com/564x/76/2f/fa/762ffa968a2f4ab48b9a915cebe58b85.jpg",
-                name : "AVATAR2",
-                rate : "8.7/10",
-                genre: "Action/Adven",
-                lan : "3D/Tamil",
-                about : "Set more than a decade after the events of the first film, Avatar The Way of Water begins to tell the story of the Sully family (Jake, Neytiri and their kids), the troub.",
-                hero: "Sam",
-                heroine:"Zoe saldana",
-                director:"james cameron",
-                produce:"Disney"
-               },
-               {pic : "https://dx35vtwkllhj9.cloudfront.net/lionsgateus/plane/images/portrait_bg.jpg",
-                name : "PLANE",
-                rate : "8.5/10",
-                genre: "Action/Thr",
-                lan : "2D/Tamil",
-                about : "Pilot Brodie Torrance (Gerard Butler) saves his passengers from a lightning strike by making a risky landing on a war-torn island only to find that surviving the landing .",
-                hero: "gerard butler",
-                heroine:"daneilla",
-                director:"jeon-francis",
-                produce:"flying heven"
-               }
-             
-              ]
     return(
-        <div className="dis">
-             {arr.map(value=>(<Cine photo={value.pic} name={value.name} rating={value.rate} genre={value.genre} lan={value.lan} about={value.about}  hero={value.hero} heroine={value.heroine} director={value.director} producer={value.produce}/> ))}
-    
-        </div>
-    );
-}
-function Cine({photo,name,rating,genre,lan,about,hero,heroine,director,producer}){
-    return(
-        <div className="con1">
-        <img className="pic" src={photo} alt="thunivu"/><br/>
-        <div className="first">
-        <p>{name} ⭐{rating}</p>
-        </div>
-        <div className="sec">
-            <p>{genre} {lan}</p>
-        </div>
-        <h3 className="heading">ABOUT :</h3>
-        <p>{about}</p>
-        <h3 className="heading">CAST :</h3>
         <div>
-            <p className="cast">HERO : {hero}</p>
-            <p className="cast"> HEORINE : {heroine}</p>
-            <p className="cast"> DIRECT : {director} </p> 
-            <p className="cast"> PRODUCER :{producer}</p>
+           <Movielist />
         </div>
-        <Counter/><br/>
-        <button className="book">Book Ticket</button>
-         </div>
     );
 }
-
-
-function Counter(){
-    const[total,setLike]=useState(0)
-    const[total1,setDisLike]=useState(0)
+function Movielist(){
+    const obj=[
+        {
+          "name": "Vikram",
+          "poster": "https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
+          "rating": 8.4,
+          "summary": "Members of a black ops team must track and eliminate a gang of masked murderers."
+        },
+        {
+          "name": "RRR",
+          "poster": "https://englishtribuneimages.blob.core.windows.net/gallary-content/2021/6/Desk/2021_6$largeimg_977224513.JPG",
+          "rating": 8.8,
+          "summary": "RRR is an upcoming Indian Telugu-language period action drama film directed by S. S. Rajamouli, and produced by D. V. V. Danayya of DVV Entertainments."
+        },
+        {
+          "name": "Iron man 2",
+          "poster": "https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg3NzAzMw@@._V1_FMjpg_UX1000_.jpg",
+          "rating": 7,
+          "summary": "With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy."
+        },
+        {
+          "name": "No Country for Old Men",
+          "poster": "https://upload.wikimedia.org/wikipedia/en/8/8b/No_Country_for_Old_Men_poster.jpg",
+          "rating": 8.1,
+          "summary": "A hunter's life takes a drastic turn when he discovers two million dollars while strolling through the aftermath of a drug deal. He is then pursued by a psychopathic killer who wants the money."
+        },
+        {
+          "name": "Jai Bhim",
+          "poster": "https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg",
+          "summary": "A tribal woman and a righteous lawyer battle in court to unravel the mystery around the disappearance of her husband, who was picked up the police on a false case",
+          "rating": 8.8
+        },
+        {
+          "name": "The Avengers",
+          "rating": 8,
+          "summary": "Marvel's The Avengers (classified under the name Marvel Avengers\n Assemble in the United Kingdom and Ireland), or simply The Avengers, is\n a 2012 American superhero film based on the Marvel Comics superhero team\n of the same name.",
+          "poster": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersendgame_lob_crd_05.jpg"
+        },
+        {
+          "name": "Interstellar",
+          "poster": "https://m.media-amazon.com/images/I/A1JVqNMI7UL._SL1500_.jpg",
+          "rating": 8.6,
+          "summary": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA\n pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team\n of researchers, to find a new planet for humans."
+        },
+        {
+          "name": "Baahubali",
+          "poster": "https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg",
+          "rating": 8,
+          "summary": "In the kingdom of Mahishmati, Shivudu falls in love with a young warrior woman. While trying to woo her, he learns about the conflict-ridden past of his family and his true legacy."
+        },
+        {
+          "name": "Ratatouille",
+          "poster": "https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=",
+          "rating": 8,
+          "summary": "Remy, a rat, aspires to become a renowned French chef. However, he fails to realise that people despise rodents and will never enjoy a meal cooked by him."
+        },
+        {
+          "name": "PS2",
+          "poster": "https://m.media-amazon.com/images/M/MV5BYjFjMTQzY2EtZjQ5MC00NGUyLWJiYWMtZDI3MTQ1MGU4OGY2XkEyXkFqcGdeQXVyNDExMjcyMzA@._V1_.jpg",
+          "summary": "Ponniyin Selvan: I is an upcoming Indian Tamil-language epic period action film directed by Mani Ratnam, who co-wrote it with Elango Kumaravel and B. Jeyamohan",
+          "rating": 8
+        },
+        {
+          "name": "Thor: Ragnarok",
+          "poster": "https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI@._V1_.jpg",
+          "summary": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA\\n pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team\\n of researchers, to find a new planet for humans.",
+          "rating": 8.8
+        }
+      ]
+      
     return(
-        <div className="li">
-            <button className="like" onClick={()=>setLike(total+1)}>👍{total}</button>
-            <button className="dislike" onClick={()=>setDisLike(total1+1)}>👎{total1}</button>
+        <div className="movieslist">
+         {obj.map( (mv)=> (<Movie data={mv}/>)) }
         </div>
     );
-
 }
+
+function Movie({data}){
+
+return(
+<div className="movies">
+    <img  className="poster" src={data.poster} alt={data.name}/>
+    <div className="data">
+    <div className="fir">    
+    <h2 className="name">{data.name}</h2>
+    <p className="rate">⭐{data.rating}</p></div>
+    <p className="sum">{data.summary}</p>
+    <Counter/></div>
+
+</div>
+);
+}
+function Counter(){
+    const [total,setLike]=useState(0)
+    const [total1,setLike1]=useState(0)
+    return(
+        <div className="like">
+            <button className="likes" onClick={()=>setLike(total+1)}>👍{total}</button>
+            <button className="likes" onClick={()=>setLike1(total1+1)}>👎{total1}</button>
+
+        </div>
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+
