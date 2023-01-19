@@ -88,6 +88,9 @@ function Movielist(){
 }
 
 function Movie({data}){
+  const styling={
+    color :data.rating > 8.5 ? "green" : "red"
+  }
 
 return(
 <div className="movies">
@@ -95,7 +98,7 @@ return(
     <div className="data">
     <div className="fir">    
     <h2 className="name">{data.name}</h2>
-    <p className="rate">⭐{data.rating}</p></div>
+    <p style={styling} className="rate">⭐{data.rating}</p></div>
     <p className="sum">{data.summary}</p>
     <Counter/></div>
 
