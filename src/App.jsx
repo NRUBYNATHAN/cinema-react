@@ -91,6 +91,10 @@ function Movie({data}){
   const styling={
     color :data.rating > 8.5 ? "green" : "red"
   }
+   const[show,setShow]=useState(true)
+  const summarystyle={
+    display :show ?"block": "none"
+  }
 
 return(
 <div className="movies">
@@ -99,12 +103,15 @@ return(
     <div className="fir">    
     <h2 className="name">{data.name}</h2>
     <p style={styling} className="rate">⭐{data.rating}</p></div>
-    <p className="sum">{data.summary}</p>
+    <button onClick={()=>(setShow(!show))}>toggle</button>
+    <p style={summarystyle} className="sum">{data.summary}</p>
     <Counter/></div>
 
 </div>
 );
 }
+
+
 function Counter(){
     const [total,setLike]=useState(0)
     const [total1,setLike1]=useState(0)
