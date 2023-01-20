@@ -88,6 +88,7 @@ function Movielist(){
     return(
 //ithula index and key value ethukuna map panrapo error kattama iruka
         <div className="movieslist">
+        
         {obj.map( (mv,index)=> (<Movie key={index}  data={mv}/>)) }
         </div>
 
@@ -110,9 +111,10 @@ const[show,setShow]=useState(true)
 
 return(
 
-<div className="movies">
 
-    <img  className="poster" src={data.poster} alt={data.name}/>
+<div className="movies">
+ 
+   <img  className="poster" src={data.poster} alt={data.name}/>
     <div className="data">
     <div className="fir">    
     <h2 className="name">{data.name}</h2>
@@ -128,20 +130,21 @@ return(
 //like dislike concept
 function Counter(){
 
+
     const [total,setLike]=useState(0)
+   
     const [total1,setLike1]=useState(0)
+  
     return(
 
         <div className="like">
 
-            <button className="likes" onClick={()=>setLike(total+1)}>👍{total}</button>
+            <button  className="likes" onClick={()=>setLike(total+1)}>👍{total}</button>
             <button className="likes" onClick={()=>setLike1(total1+1)}>👎{total1}</button>
 
         </div>
     );
 }
-
-
 
 
 
