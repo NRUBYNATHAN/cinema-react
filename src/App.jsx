@@ -8,7 +8,8 @@ export default function App(){
     return(
 
         <div>
-           <Movielist />
+          <Movielist /> 
+           {/* <AddColor/> */}
         </div>
 
          );
@@ -87,11 +88,11 @@ function Movielist(){
       
     return(
 //ithula index and key value ethukuna map panrapo error kattama iruka
-        <div className="movieslist">
+       <div className="movieslist">
         
-        {obj.map( (mv,index)=> (<Movie key={index}  data={mv}/>)) }
+         {obj.map( (mv,index)=> (<Movie key={index}  data={mv}/>)) }
         </div>
-
+      
         );
 }
 
@@ -150,8 +151,23 @@ function Counter(){
 }
 
 
-
-
+function AddColor(){
+  const[show,setShow]=useState("crimson");
+  const styling={
+    background:show,
+  };
+  return(
+    <div>
+<input 
+style={styling} 
+type="text" 
+onChange={(eve)=>setShow(eve.target.value)} 
+value={show}
+/>
+    
+    </div>
+  );
+}
 
 
 
