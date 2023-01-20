@@ -4,13 +4,18 @@ import "./App.css"
 import {useState} from "react";
 
 export default function App(){
+
     return(
+
         <div>
            <Movielist />
         </div>
-    );
+
+         );
 }
 function Movielist(){
+  //data calling
+
     const obj=[
         {
           "name": "Vikram",
@@ -81,29 +86,38 @@ function Movielist(){
       ]
       
     return(
+//ithula index and key value ethukuna map panrapo error kattama iruka
         <div className="movieslist">
-         {obj.map( (mv)=> (<Movie data={mv}/>)) }
+        {obj.map( (mv,index)=> (<Movie key={index}  data={mv}/>)) }
         </div>
-    );
+
+        );
 }
 
 function Movie({data}){
+//conditional styling
   const styling={
     color :data.rating > 8.5 ? "green" : "red"
   }
-   const[show,setShow]=useState(true)
-  const summarystyle={
+//conditional styling and hooks
+//manage state,independed,accelarete
+const[show,setShow]=useState(true)
+
+  //derived state,depended,speedo meter
+ const summarystyle={
     display :show ?"block": "none"
   }
 
 return(
+
 <div className="movies">
+
     <img  className="poster" src={data.poster} alt={data.name}/>
     <div className="data">
     <div className="fir">    
     <h2 className="name">{data.name}</h2>
     <p style={styling} className="rate">⭐{data.rating}</p></div>
-    <button onClick={()=>(setShow(!show))}>toggle</button>
+    <button onClick={()=>(setShow(!show))}>HIDE</button>
     <p style={summarystyle} className="sum">{data.summary}</p>
     <Counter/></div>
 
@@ -111,12 +125,15 @@ return(
 );
 }
 
-
+//like dislike concept
 function Counter(){
+
     const [total,setLike]=useState(0)
     const [total1,setLike1]=useState(0)
     return(
+
         <div className="like">
+
             <button className="likes" onClick={()=>setLike(total+1)}>👍{total}</button>
             <button className="likes" onClick={()=>setLike1(total1+1)}>👎{total1}</button>
 
