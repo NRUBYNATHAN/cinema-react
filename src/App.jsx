@@ -105,9 +105,9 @@ function Movie({data}){
 const[show,setShow]=useState(true)
 
   //derived state,depended,speedo meter
- const summarystyle={
-    display :show ?"block": "none"
-  }
+//  const summarystyle={
+//     display :show ?"block": "none"
+//   }
 
 return(
 
@@ -120,7 +120,10 @@ return(
     <h2 className="name">{data.name}</h2>
     <p style={styling} className="rate">⭐{data.rating}</p></div>
     <button onClick={()=>(setShow(!show))}>HIDE</button>
-    <p style={summarystyle} className="sum">{data.summary}</p>
+    {/* conditional rendering method*/ }
+    {show ? <p className="sum">{data.summary}</p> : null}
+    {/*conditional styling method
+    <p style={summarystyle} className="sum">{data.summary}</p> */}
     <Counter/></div>
 
 </div>
