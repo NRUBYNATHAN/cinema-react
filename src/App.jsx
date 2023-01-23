@@ -8,6 +8,7 @@ export default function App(){
     return(
 
         <div>
+          
           <Movielist /> 
            {/* <AddColor/> */}
         </div>
@@ -17,7 +18,7 @@ export default function App(){
 function Movielist(){
   //data calling
 
-    const obj=[
+    const [obj,setObject]=useState([
         {
           "name": "Vikram",
           "poster": "https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
@@ -84,15 +85,35 @@ function Movielist(){
           "summary": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA\\n pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team\\n of researchers, to find a new planet for humans.",
           "rating": 8.8
         }
-      ]
+      ])
+
+      const[name,setName]=useState("")
+      const[poster,setPoster]=useState("")
+      const[rating,setRating]=useState("")
+      const[summary,setSummary]=useState("")
       
     return(
 //ithula index and key value ethukuna map panrapo error kattama iruka
-       <div className="movieslist">
-        
+      <div>    
+        <div className="input">
+      <input onChange={(event)=>setName(event.target.value)} type="text"placeholder="name"/>
+      <input onChange={(event)=>setPoster(event.target.value)}type="text"placeholder="poster"/>
+      <input onChange={(event)=>setSummary(event.target.value)}type="text"placeholder="summary"/>
+      <input onChange={(event)=>setRating(event.target.value)}type="text"placeholder="Rating"/>
+      <button onClick={()=>{
+      const newMovie= {
+        name:name,
+        poster:poster,
+        summary:summary,
+        rating:rating,};
+        setObject([...obj,newMovie]);
+      }}>Add Movie</button>
+      </div><br></br>
+      <div className="movieslist">
          {obj.map( (mv,index)=> (<Movie key={index}  data={mv}/>)) }
         </div>
-      
+        </div>
+ 
         );
 }
 
@@ -148,25 +169,6 @@ function Counter(){
 
         </div>
     );
-}
-
-
-function AddColor(){
-  const[show,setShow]=useState("crimson");
-  const styling={
-    background:show,
-  };
-  return(
-    <div>
-<input 
-style={styling} 
-type="text" 
-onChange={(eve)=>setShow(eve.target.value)} 
-value={show}
-/>
-    
-    </div>
-  );
 }
 
 

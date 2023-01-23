@@ -50,3 +50,13 @@ margin: 0;
     gap:20px;
     justify-items: center;
 }
+.input{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-left: 500px;
+    margin-bottom: 50px;
+}
+[type="text"]{
+    margin-bottom: 5px;
+}
