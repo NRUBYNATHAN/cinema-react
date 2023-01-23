@@ -86,7 +86,7 @@ function Movielist(){
           "rating": 8.8
         }
       ])
-
+//Add movie concept starts here
       const[name,setName]=useState("")
       const[poster,setPoster]=useState("")
       const[rating,setRating]=useState("")
