@@ -1,10 +1,7 @@
 
-
 import "./App.css"
 //named import
 import {useState} from "react";
-
-
 //default export
 export default function App(){
        return(
@@ -115,7 +112,6 @@ function Movielist(){
  
         );
 }
-
 function Movie({data}){
 //conditional styling
   const styling={
@@ -150,9 +146,6 @@ return(
 </div>
 );
 }
-
-
-
 function Counter() {
 
 
