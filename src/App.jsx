@@ -1,7 +1,13 @@
+//app import
 import "./App.css"
+//meterial buttton import
 import Button from '@mui/material/Button';
-//named import
+//meterial textfield import
+import TextField from '@mui/material/TextField';
+//named import hook
 import {useState} from "react";
+//
+import IconButton from '@mui/material/IconButton';
 //default export
 export default function App(){
        return(
@@ -92,10 +98,17 @@ function Movielist(){
 //ithula index and key value ethukuna map panrapo error kattama iruka
       <div>    
         <div className="input">
-      <input onChange={(event)=>setName(event.target.value)} type="text"placeholder="name"/>
-      <input onChange={(event)=>setPoster(event.target.value)}type="text"placeholder="poster"/>
-      <input onChange={(event)=>setSummary(event.target.value)}type="text"placeholder="summary"/>
-      <input onChange={(event)=>setRating(event.target.value)}type="text"placeholder="Rating"/>
+        <TextField onChange={(event)=>setName(event.target.value)} label="name" variant="outlined" />
+        <TextField onChange={(event)=>setPoster(event.target.value)} label="poster" variant="outlined" />
+        <TextField onChange={(event)=>setSummary(event.target.value)} label="summary" variant="outlined" />
+        <TextField onChange={(event)=>setRating(event.target.value)} label="Rating" variant="outlined" />
+
+      {/*<input onChange={(event)=>setName(event.target.value)} type="text" placeholder="name"/>
+      <input onChange={(event)=>setPoster(event.target.value)} type="text" placeholder="poster"/>
+      <input onChange={(event)=>setSummary(event.target.value)} type="text" placeholder="summary"/>
+      <input onChange={(event)=>setRating(event.target.value)} type="text" placeholder="rating"/> */}
+
+{/*meterial button introduce */}
 
       {/* <button onClick={()=>{
       const newMovie= {
@@ -167,9 +180,15 @@ function Counter() {
   return (
 
     <div className="like">
+      <IconButton onClick={() => setLike(total + 1)} aria-label="delete" color="primary">
+      👍{total}
+     </IconButton>
+     <IconButton onClick={() => setLike1(total1+ 1)} aria-label="delete" color="error">
+     👎{total1}
+     </IconButton>
 
-      <button className="likes" onClick={() => setLike(total + 1)}>👍{total}</button>
-      <button className="likes" onClick={() => setLike1(total1 + 1)}>👎{total1}</button>
+      {/* <button className="likes" onClick={() => setLike(total + 1)}>👍{total}</button>
+      <button className="likes" onClick={() => setLike1(total1 + 1)}>👎{total1}</button> */}
 
     </div>
   );

@@ -19,7 +19,7 @@
 }
 .movies{
 
-    background-color: orange;
+    background-color: lightgrey;
     width:340px;
 }
 .poster{
@@ -49,12 +49,10 @@ margin: 0;
     justify-items: center;
 }
 .input{
+    gap:5px;
     display: flex;
     flex-direction: column;
     width: 500px;
     margin-left: 500px;
     margin-bottom: 50px;
-}
-[type="text"]{
-    margin-bottom: 5px;
 }
