@@ -1,19 +1,18 @@
 
 
 import "./App.css"
+//named import
 import {useState} from "react";
 
+
+//default export
 export default function App(){
-
-    return(
-
-        <div>
-          
-          <Movielist /> 
-           {/* <AddColor/> */}
-        </div>
-
-         );
+       return(
+               <div>
+                  <Movielist/> 
+                  
+                </div>
+              );
 }
 function Movielist(){
   //data calling
@@ -152,27 +151,22 @@ return(
 );
 }
 
-//like dislike concept
-function Counter(){
 
 
-    const [total,setLike]=useState(0)
-   
-    const [total1,setLike1]=useState(0)
-  
-    return(
+function Counter() {
 
-        <div className="like">
 
-            <button  className="likes" onClick={()=>setLike(total+1)}>👍{total}</button>
-            <button className="likes" onClick={()=>setLike1(total1+1)}>👎{total1}</button>
+  const [total, setLike] = useState(0);
 
-        </div>
-    );
+  const [total1, setLike1] = useState(0);
+
+  return (
+
+    <div className="like">
+
+      <button className="likes" onClick={() => setLike(total + 1)}>👍{total}</button>
+      <button className="likes" onClick={() => setLike1(total1 + 1)}>👎{total1}</button>
+
+    </div>
+  );
 }
-
-
-
-
-
-
