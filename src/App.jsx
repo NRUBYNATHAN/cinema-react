@@ -1,5 +1,6 @@
 
 import "./App.css"
+import Button from '@mui/material/Button';
 //named import
 import {useState} from "react";
 //default export
@@ -96,15 +97,26 @@ function Movielist(){
       <input onChange={(event)=>setPoster(event.target.value)}type="text"placeholder="poster"/>
       <input onChange={(event)=>setSummary(event.target.value)}type="text"placeholder="summary"/>
       <input onChange={(event)=>setRating(event.target.value)}type="text"placeholder="Rating"/>
-      <button onClick={()=>{
+      
+      {/* <button onClick={()=>{
       const newMovie= {
         name:name,
         poster:poster,
         summary:summary,
         rating:rating,};
         setObject([...obj,newMovie]);
-      }}>Add Movie</button>
-      </div><br></br>
+      }}>Add Movie</button> */}
+      {/* meterial button  */}
+      <Button onClick={()=>{
+      const newMovie= {
+        name:name,
+        poster:poster,
+        summary:summary,
+        rating:rating,};
+        setObject([...obj,newMovie]);
+      }} variant="contained">Add Movie</Button>
+      </div>
+
       <div className="movieslist">
          {obj.map( (mv,index)=> (<Movie key={index}  data={mv}/>)) }
         </div>
