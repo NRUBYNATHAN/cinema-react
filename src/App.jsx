@@ -13,7 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-export default function App(){
+function App(){
        return(
                <div>
                   <Movielist/> 
@@ -201,3 +201,6 @@ function Counter() {
     </div>
   );
 }
+
+//export app
+export default App;
