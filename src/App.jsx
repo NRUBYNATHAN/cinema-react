@@ -12,15 +12,17 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-//example import counter
-import { Counter } from "./Counter";
+//import batch 
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+
 
 
 function App(){
        return(
                <div>
-                  {/* <Counter/>  */}
-                  <Movielist/>
+                  <Movielist/> 
+                  
                   
                 </div>
               );
@@ -181,6 +183,35 @@ return(
 
 </div>
 );
+}
+function Counter() {
+
+
+  const [total, setLike] = useState(0);
+
+  const [total1, setLike1] = useState(0);
+
+  return (
+
+    <div className="like">
+      <IconButton onClick={() => setLike(total + 1)} aria-label="delete" color="primary">
+      <Badge  onClick={() => setLike(total + 1)} badgeContent={total} color="primary">
+         👍
+      </Badge>
+      </IconButton>
+      
+      <IconButton onClick={() => setLike1(total1 + 1)} aria-label="delete" color="error">
+        
+        <Badge  onClick={() => setLike1(total1 + 1)} badgeContent={total1} color="error">
+         👎
+        </Badge>
+      </IconButton>
+
+      {/* <button className="likes" onClick={() => setLike(total + 1)}>👍{total}</button>
+            <button className="likes" onClick={() => setLike1(total1 + 1)}>👎{total1}</button> */}
+
+    </div>
+  );
 }
 //export app
 export default App;
