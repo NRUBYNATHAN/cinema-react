@@ -150,7 +150,7 @@ function Movie({data}){
   }
 //conditional styling and hooks
 //manage state,independed,accelarete
-const[show,setShow]=useState(true)
+const[show,setShow]=useState(false)
 
   //derived state,depended,speedo meter
 //  const summarystyle={
