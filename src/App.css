@@ -52,8 +52,12 @@ margin: 0;
 .input{
     gap:5px;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap:20px;
     flex-direction: column;
-    width: 800px;
-    margin-left: 350px;
     margin-bottom: 50px;
+    margin-left: 0;
+
 }
