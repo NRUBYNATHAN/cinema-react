@@ -1,20 +1,19 @@
 //app import
-import "./App.css"
+import "./App.css";
 //meterial buttton import
 import Button from '@mui/material/Button';
 //meterial textfield import
 import TextField from '@mui/material/TextField';
 //named import hook
 import {useState} from "react";
-//
+//import iconbutton
 import IconButton from '@mui/material/IconButton';
-//default export
+//import expand button
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-//import batch 
+//import batch  button
 import Badge from '@mui/material/Badge';
-
-
+//
 function App(){
        return(
                <div>
@@ -163,6 +162,7 @@ return(
 <div className="movies">
  
    <img  className="poster" src={data.poster} alt={data.name}/>
+    
     <div className="data">
     <div className="fir">    
     <h2 className="name">{data.name}</h2>
@@ -176,9 +176,9 @@ return(
     {show ? <p className="sum">{data.summary}</p> : null}
     {/*conditional styling method
     <p style={summarystyle} className="sum">{data.summary}</p> */}
-    <Counter/></div>
-
+       <Counter/></div>
 </div>
+
 );
 }
 function Counter() {
