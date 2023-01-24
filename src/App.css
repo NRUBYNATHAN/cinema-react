@@ -54,7 +54,7 @@ margin: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap:20px;
     flex-direction: column;
     margin-bottom: 50px;
