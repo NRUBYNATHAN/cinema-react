@@ -106,7 +106,7 @@ function Movielist(){
       <div>    
         <div className="input">
         <TextField onChange={(event)=>setName(event.target.value)} label="name" variant="outlined" />
-        <TextField onChange={(event)=>setPoster(event.target.value)} label="poster" variant="outlined" />
+        <TextField onChange={(event)=>setPoster(event.target.value)} label="poster url" variant="outlined" />
         <TextField onChange={(event)=>setSummary(event.target.value)} label="summary" variant="outlined" />
         <TextField onChange={(event)=>setRating(event.target.value)} label="Rating" variant="outlined" />
 
