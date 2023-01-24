@@ -9,6 +9,10 @@ import {useState} from "react";
 //
 import IconButton from '@mui/material/IconButton';
 //default export
+//
+import DeleteIcon from '@mui/icons-material/Delete';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export default function App(){
        return(
                <div>
@@ -159,8 +163,12 @@ return(
     <div className="data">
     <div className="fir">    
     <h2 className="name">{data.name}</h2>
+    <IconButton onClick={()=>(setShow(!show))} aria-label="HIDE">
+      {show ? <ExpandLessIcon />: <ExpandMoreIcon/>}
+    </IconButton>
     <p style={styling} className="rate">⭐{data.rating}</p></div>
-    <button onClick={()=>(setShow(!show))}>HIDE</button>
+  
+    {/* <button onClick={()=>(setShow(!show))}>HIDE</button> */}
     {/* conditional rendering method*/ }
     {show ? <p className="sum">{data.summary}</p> : null}
     {/*conditional styling method

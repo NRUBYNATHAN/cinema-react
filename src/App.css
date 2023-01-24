@@ -21,6 +21,7 @@
 
     background-color: lightgrey;
     width:340px;
+    height:min-content;
 }
 .poster{
     width:340px;
@@ -52,7 +53,7 @@ margin: 0;
     gap:5px;
     display: flex;
     flex-direction: column;
-    width: 500px;
-    margin-left: 500px;
+    width: 800px;
+    margin-left: 350px;
     margin-bottom: 50px;
 }
