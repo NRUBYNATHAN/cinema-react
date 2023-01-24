@@ -9,13 +9,10 @@ import {useState} from "react";
 //
 import IconButton from '@mui/material/IconButton';
 //default export
-import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 //import batch 
 import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
-
 
 
 function App(){
@@ -213,5 +210,6 @@ function Counter() {
     </div>
   );
 }
+
 //export app
 export default App;
