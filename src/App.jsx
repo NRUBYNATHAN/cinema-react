@@ -15,16 +15,44 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Badge from '@mui/material/Badge';
 //import card material 
 import Card from '@mui/material/Card';
+//import router
+import { Routes, Route, Link } from "react-router-dom";
 
 
 function App(){
        return(
                <div>
-                  <Movielist/> 
-                  
+        {/*NAV BAR POTTU ATHA CLICK PANNA RENDER AKUM*/}
+                   <nav>
+                       <ul>
+                         <li>
+                           <Link to ="/">Home</Link>
+                         </li>
+                         <li>
+                           <Link to ="/movie-list">Movielist</Link>
+                         </li>
+                         <li>
+                           <Link to ="/counter">Like</Link>
+                         </li>
+                      </ul>
+                  </nav>
+         {/*ROUTER INTRODUCE*/}
+                  <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/movie-list" element={<Movielist />} />
+                      <Route path="/counter" element={<Counter />} />
+                  </Routes>
                   
                 </div>
               );
+}
+
+function Home() {
+  return(
+    <div>
+      <h1>Welcome to router home page 🎉🎉🎉❤️❤️</h1>
+    </div>
+  );
 }
 function Movielist(){
   //data calling
