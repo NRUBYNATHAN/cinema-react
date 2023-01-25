@@ -13,7 +13,9 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 //import batch  button
 import Badge from '@mui/material/Badge';
-//
+//import card material
+import Card from '@mui/material/Card';
+
 
 function App(){
        return(
@@ -160,12 +162,12 @@ const[show,setShow]=useState(false)
 return(
 
 
-<div className="movies">
+<Card className="movies">
  
    <img  className="poster" src={data.poster} alt={data.name}/>
     
     <div className="data">
-    <div className="fir">    
+    <div className="fir">  
     <h2 className="name">{data.name}</h2>
     <IconButton onClick={()=>(setShow(!show))} aria-label="HIDE">
       {show ? <ExpandLessIcon />: <ExpandMoreIcon/>}
@@ -175,10 +177,11 @@ return(
     {/* <button onClick={()=>(setShow(!show))}>HIDE</button> */}
     {/* conditional rendering method*/ }
     {show ? <p className="sum">{data.summary}</p> : null}
+    
     {/*conditional styling method
     <p style={summarystyle} className="sum">{data.summary}</p> */}
        <Counter/></div>
-</div>
+</Card>
 
 );
 }
