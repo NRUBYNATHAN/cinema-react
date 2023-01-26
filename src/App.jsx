@@ -17,7 +17,10 @@ import Badge from '@mui/material/Badge';
 import Card from '@mui/material/Card';
 //import router
 import { Routes, Route, Link } from "react-router-dom";
-
+//import info button
+import InfoIcon from '@mui/icons-material/Info';
+//import useNavigate hook 
+import {useNavigate} from "react-router-dom";
 
 function App(){
        return(
@@ -38,10 +41,10 @@ function App(){
                   </nav>
          {/*ROUTER INTRODUCE*/}
                   <Routes>
-                      <Route path="/"   element={<Home />} />
-                      <Route path="/movie-list"   element={<Movielist />} />
-                      <Route path="/counter"   element={<Counter />} />
-                      <Route path="*"     element={<NotFount />} />
+                      <Route  path="/"           element={<Home />} />
+                      <Route  path="/movie-list" element={<Movielist />} />
+                      <Route  path="/counter"    element={<Counter />} />
+                      <Route  path="*"           element={<NotFount />} />
                   </Routes>
                   
                 </div>
@@ -178,13 +181,13 @@ function Movielist(){
       </div>
 
       <div className="movieslist">
-         {obj.map( (mv,index)=> (<Movie key={index}  data={mv}/>)) }
+         {obj.map( (mv,index)=> (<Movie key={index}  data={mv} id={index}/>)) }
         </div>
         </div>
  
         );
 }
-function Movie({data}){
+function Movie({data,id}){
 //conditional styling
   const styling={
     color :data.rating > 8.5 ? "green" : "red"
@@ -197,7 +200,8 @@ const[show,setShow]=useState(false)
 //  const summarystyle={
 //     display :show ?"block": "none"
 //   }
-
+// NAVIGATE DECLARATION
+const navigate = useNavigate();
 return(
 
 
@@ -208,9 +212,15 @@ return(
     <div className="data">
     <div className="fir">  
     <h2 className="name">{data.name}</h2>
-    <IconButton onClick={()=>(setShow(!show))} aria-label="HIDE">
+
+    <IconButton color="primary" onClick={()=>(setShow(!show))} aria-label="HIDE">
       {show ? <ExpandLessIcon />: <ExpandMoreIcon/>}
     </IconButton>
+
+    <IconButton color="primary" onClick={()=>navigate(`/movies/${id}`)} aria-label="Movie details ">
+      <InfoIcon/>
+     </IconButton>
+     
     <p style={styling} className="rate">⭐{data.rating}</p></div>
   
     {/* <button onClick={()=>(setShow(!show))}>HIDE</button> */}
