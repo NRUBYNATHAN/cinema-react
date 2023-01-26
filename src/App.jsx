@@ -217,7 +217,7 @@ return(
       {show ? <ExpandLessIcon />: <ExpandMoreIcon/>}
     </IconButton>
 
-    <IconButton color="primary" onClick={()=>navigate(`/movies/${id}`)} aria-label="Movie details ">
+    <IconButton color="primary" onClick={()=>navigate(`/movie-list/${id}`)} aria-label="Movie details ">
       <InfoIcon/>
      </IconButton>
      
