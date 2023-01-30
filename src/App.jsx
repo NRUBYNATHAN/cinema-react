@@ -22,7 +22,16 @@ import InfoIcon from '@mui/icons-material/Info';
 //import useNavigate hook 
 import {useNavigate} from "react-router-dom";
 //
+import AppBar from '@mui/material/AppBar';
+
+import Toolbar from '@mui/material/Toolbar';
+
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
 function App(){
   const Initial_List=[
     {
@@ -116,11 +125,33 @@ function App(){
   ]
   
   const [obj,setObject]=useState(Initial_List)
+  const navigate=useNavigate()
   
+const[mode,setMode]=useState("light")
+  const darkTheme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
        return(
+        <ThemeProvider theme={darkTheme}>
+             <Paper elevation={3} >
                <div>
         {/*NAV BAR POTTU ATHA CLICK PANNA RENDER AKUM*/}
-                   <nav>
+        <AppBar position="static">
+        <Toolbar>
+          <Button onClick={()=>navigate("/")} color="inherit">Home</Button>
+          <Button onClick={()=>navigate("/movie-list")} color="inherit">Movielist</Button>
+          <Button onClick={()=>navigate("/counter")} color="inherit">Like</Button>
+         < Button onClick={()=>setMode(mode=== "light" ? "dark" : "light")} color="inherit">
+         {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+         {(mode=== "light" ? "dark" : "light")}Mode
+          </Button>
+         
+          
+       </Toolbar>
+      </AppBar>
+                   {/* <nav>
                        <ul>
                          <li>
                            <Link to ="/">Home</Link>
@@ -132,7 +163,7 @@ function App(){
                            <Link to ="/counter">Like</Link>
                          </li>
                       </ul>
-                  </nav>
+                  </nav> */}
          {/*ROUTER INTRODUCE*/}
                   <Routes>
                       <Route  path="/"           element={<Home />} />
@@ -143,6 +174,9 @@ function App(){
                   </Routes>
                   
                 </div>
+                </Paper>
+                </ThemeProvider>
+
               );
 }
 function MovieDetails({obj}){
