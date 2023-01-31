@@ -34,7 +34,8 @@ import Paper from '@mui/material/Paper';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 //brightness decress meterial
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-
+import { Movielist } from "./Movielist";
+import {useEffect} from "react";
 function App(){
   const Initial_List=[
     {
@@ -127,7 +128,7 @@ function App(){
     }
   ]
   
-  const [obj,setObject]=useState(Initial_List)
+  
   const navigate=useNavigate()
   
 const[mode,setMode]=useState("light")
@@ -139,12 +140,15 @@ const[mode,setMode]=useState("light")
   const bpstyles={
     minHeight:"100vh",
   }
+
  
-  // useEffect(()=>{
-  //   fetch("https://63d870175a330a6ae16865de.mockapi.io/movies")
-  //   .then((data)=>data.json)
-  //   .then((mvs)=>console.log(mvs))
-  // },[]) 
+  const [obj, setObject] = useState([]);
+  useEffect(() => {
+    fetch("https://63d870175a330a6ae16865de.mockapi.io/movies")
+      .then((data) => data.json())
+      .then((mvs) => setObject(mvs));
+  }, []);
+  
   
 
        return(
@@ -182,7 +186,7 @@ const[mode,setMode]=useState("light")
          {/*ROUTER INTRODUCE*/}
                   <Routes>
                       <Route  path="/"           element={<Home />} />
-                      <Route  path="/movie-list" element={<Movielist obj={obj} setObject={setObject} />}/>
+                      <Route  path="/movie-list" element={<Movielist/>}/>
                       <Route  path="/counter"    element={<Counter />} />
                       <Route  path="*"           element={<NotFount />} />
                       <Route  path="/movie-list/:id"    element={<MovieDetails obj={obj}  />}/>
@@ -244,20 +248,6 @@ function Home() {
     </div>
   );
 }
-function Movielist({obj,setObject}){
-   
-      
-    return(
-//ithula index and key value ethukuna map panrapo error kattama iruka
-      <div>    
-       {/* <AddMovie obj={obj} setObject={setObject} /> */}
-      <div className="movieslist">
-         {obj.map( (mv,index)=> (<Movie key={index}  data={mv} id={index}/>)) }
-        </div>
-        </div>
- 
-        );
-}
 function AddMovie({obj,setObject}){
   const[name,setName]=useState("")
   const[poster,setPoster]=useState("")
@@ -301,7 +291,7 @@ function AddMovie({obj,setObject}){
 
   );
 }
-function Movie({data,id}){
+export function Movie({data,id}){
 //conditional styling
   const styling={
     color :data.rating > 8.5 ? "green" : "red"
