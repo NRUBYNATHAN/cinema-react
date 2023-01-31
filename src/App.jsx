@@ -21,15 +21,18 @@ import { Routes, Route, Link,useParams } from "react-router-dom";
 import InfoIcon from '@mui/icons-material/Info';
 //import useNavigate hook 
 import {useNavigate} from "react-router-dom";
-//
+//navbar meterial
 import AppBar from '@mui/material/AppBar';
 
 import Toolbar from '@mui/material/Toolbar';
-
+//back space meterial
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+//paper meterial
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+//brightness incress meterial 
 import Brightness4Icon from '@mui/icons-material/Brightness4';
+//brightness decress meterial
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 function App(){
@@ -133,9 +136,16 @@ const[mode,setMode]=useState("light")
       mode: mode,
     },
   });
+  const bpstyles={
+    minHeight:"100vh",
+  }
+  fetch("https://63d870175a330a6ae16865de.mockapi.io/movies")
+    .then((data)=>data.json)
+    .then((mvs)=>console.log(mvs))
+
        return(
         <ThemeProvider theme={darkTheme}>
-             <Paper elevation={3} >
+             <Paper style={bpstyles} elevation={3} >
                <div>
         {/*NAV BAR POTTU ATHA CLICK PANNA RENDER AKUM*/}
         <AppBar position="static">
@@ -143,11 +153,12 @@ const[mode,setMode]=useState("light")
           <Button onClick={()=>navigate("/")} color="inherit">Home</Button>
           <Button onClick={()=>navigate("/movie-list")} color="inherit">Movielist</Button>
           <Button onClick={()=>navigate("/counter")} color="inherit">Like</Button>
-         < Button onClick={()=>setMode(mode=== "light" ? "dark" : "light")} color="inherit">
+          <Button onClick={()=>navigate("/movie/add")} color="inherit">AddMovie</Button>
+         < Button sx={{marginLeft:"auto"}} onClick={()=>setMode(mode=== "light" ? "dark" : "light")} color="inherit">
          {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
          {(mode=== "light" ? "dark" : "light")}Mode
           </Button>
-         
+          
           
        </Toolbar>
       </AppBar>
@@ -171,6 +182,7 @@ const[mode,setMode]=useState("light")
                       <Route  path="/counter"    element={<Counter />} />
                       <Route  path="*"           element={<NotFount />} />
                       <Route  path="/movie-list/:id"    element={<MovieDetails obj={obj}  />}/>
+                      <Route  path="/movie/add"    element={<AddMovie obj={obj} setObject={setObject}  />}/>
                   </Routes>
                   
                 </div>
@@ -233,52 +245,61 @@ function Movielist({obj,setObject}){
   
     
 //Add movie concept starts here
-      const[name,setName]=useState("")
-      const[poster,setPoster]=useState("")
-      const[rating,setRating]=useState("")
-      const[summary,setSummary]=useState("")
+     
       
     return(
 //ithula index and key value ethukuna map panrapo error kattama iruka
       <div>    
-        <div className="input">
-        <TextField onChange={(event)=>setName(event.target.value)} label="name" variant="outlined" />
-        <TextField onChange={(event)=>setPoster(event.target.value)} label="poster url" variant="outlined" />
-        <TextField onChange={(event)=>setSummary(event.target.value)} label="summary" variant="outlined" />
-        <TextField onChange={(event)=>setRating(event.target.value)} label="Rating" variant="outlined" />
-
-      {/*<input onChange={(event)=>setName(event.target.value)} type="text" placeholder="name"/>
-      <input onChange={(event)=>setPoster(event.target.value)} type="text" placeholder="poster"/>
-      <input onChange={(event)=>setSummary(event.target.value)} type="text" placeholder="summary"/>
-      <input onChange={(event)=>setRating(event.target.value)} type="text" placeholder="rating"/> */}
-
-{/*meterial button introduce */}
-
-      {/* <button onClick={()=>{
-      const newMovie= {
-        name:name,
-        poster:poster,
-        summary:summary,
-        rating:rating,};
-        setObject([...obj,newMovie]);
-      }}>Add Movie</button> */}
-      {/* meterial button  */}
-      <Button onClick={()=>{
-      const newMovie= {
-        name:name,
-        poster:poster,
-        summary:summary,
-        rating:rating,};
-        setObject([...obj,newMovie]);
-      }} variant="contained">Add Movie</Button>
-      </div>
-
+       {/* <AddMovie obj={obj} setObject={setObject} /> */}
       <div className="movieslist">
          {obj.map( (mv,index)=> (<Movie key={index}  data={mv} id={index}/>)) }
         </div>
         </div>
  
         );
+}
+function AddMovie({obj,setObject}){
+  const[name,setName]=useState("")
+  const[poster,setPoster]=useState("")
+  const[rating,setRating]=useState("")
+  const[summary,setSummary]=useState("")
+  const[trailer,setTrailer]=useState("")
+  return(
+    <div className="input">
+    <TextField onChange={(event)=>setName(event.target.value)} label="name" variant="outlined" />
+    <TextField onChange={(event)=>setPoster(event.target.value)} label="poster url" variant="outlined" />
+    <TextField onChange={(event)=>setSummary(event.target.value)} label="summary" variant="outlined" />
+    <TextField onChange={(event)=>setRating(event.target.value)} label="Rating" variant="outlined" />
+    <TextField onChange={(event)=>setTrailer(event.target.value)} label="Trailer" variant="outlined" />
+
+  {/*<input onChange={(event)=>setName(event.target.value)} type="text" placeholder="name"/>
+  <input onChange={(event)=>setPoster(event.target.value)} type="text" placeholder="poster"/>
+  <input onChange={(event)=>setSummary(event.target.value)} type="text" placeholder="summary"/>
+  <input onChange={(event)=>setRating(event.target.value)} type="text" placeholder="rating"/> */}
+
+{/*meterial button introduce */}
+
+  {/* <button onClick={()=>{
+  const newMovie= {
+    name:name,
+    poster:poster,
+    summary:summary,
+    rating:rating,};
+    setObject([...obj,newMovie]);
+  }}>Add Movie</button> */}
+  {/* meterial button  */}
+  <Button onClick={()=>{
+  const newMovie= {
+    name:name,
+    poster:poster,
+    summary:summary,
+    rating:rating,
+    trailer:trailer,};
+    setObject([...obj,newMovie]);
+  }} variant="contained">Add Movie</Button>
+  </div>
+
+  );
 }
 function Movie({data,id}){
 //conditional styling
