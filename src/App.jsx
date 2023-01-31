@@ -139,9 +139,13 @@ const[mode,setMode]=useState("light")
   const bpstyles={
     minHeight:"100vh",
   }
-  fetch("https://63d870175a330a6ae16865de.mockapi.io/movies")
-    .then((data)=>data.json)
-    .then((mvs)=>console.log(mvs))
+ 
+  // useEffect(()=>{
+  //   fetch("https://63d870175a330a6ae16865de.mockapi.io/movies")
+  //   .then((data)=>data.json)
+  //   .then((mvs)=>console.log(mvs))
+  // },[]) 
+  
 
        return(
         <ThemeProvider theme={darkTheme}>
@@ -241,11 +245,7 @@ function Home() {
   );
 }
 function Movielist({obj,setObject}){
-  //data calling
-  
-    
-//Add movie concept starts here
-     
+   
       
     return(
 //ithula index and key value ethukuna map panrapo error kattama iruka
