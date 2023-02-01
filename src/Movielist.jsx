@@ -18,11 +18,12 @@ const getMovies=()=>{
   useEffect(() => getMovies(), []);
 
   const deleteMovie = async(id)=>{
-//technique :1
+   //Technique :1
     //  fetch(`https://63d870175a330a6ae16865de.mockapi.io/movies/${id}`,{
     //   method:"DELETE",
     // }).then(()=>getMovies());
-    //technique:2
+
+    //Technique:2
   await fetch(`https://63d870175a330a6ae16865de.mockapi.io/movies/${id}`,{
       method:"DELETE",
     });
@@ -38,7 +39,7 @@ const getMovies=()=>{
         data={mv} 
         id={mv.id} 
         DeletteButton={  
-        <IconButton color="error" onClick={()=>deleteMovie(mv.id)} aria-label="delete">
+        <IconButton  color="error" onClick={()=>deleteMovie(mv.id)} aria-label="delete">
         <DeleteIcon />
         </IconButton>}/>))}
       </div>

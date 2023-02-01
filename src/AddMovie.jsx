@@ -1,13 +1,34 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
-export function AddMovie({ obj, setObject }) {
+export function AddMovie() {
   const [name, setName] = useState("");
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
   const [summary, setSummary] = useState("");
   const [trailer, setTrailer] = useState("");
+  const navigate=useNavigate();
+  const addMovie=async ()=>{
+    
+      const newMovie = {
+        name: name,
+        poster: poster,
+        summary: summary,
+        rating: rating,
+        trailer: trailer,
+      };
+      fetch("https://63d870175a330a6ae16865de.mockapi.io/movies",{
+        method:"POST",
+        body:JSON.stringify(newMovie),
+        headers:{"Content-Type": "application/json",},
+        
+      });
+      navigate("/movie-list")
+      };
+
+      
   return (
     <div className="input">
       <TextField onChange={(event) => setName(event.target.value)} label="name" variant="outlined" />
@@ -32,16 +53,7 @@ export function AddMovie({ obj, setObject }) {
               setObject([...obj,newMovie]);
             }}>Add Movie</button> */}
       {/* meterial button  */}
-      <Button onClick={() => {
-        const newMovie = {
-          name: name,
-          poster: poster,
-          summary: summary,
-          rating: rating,
-          trailer: trailer,
-        };
-        setObject([...obj, newMovie]);
-      }} variant="contained">Add Movie</Button>
+      <Button onClick={addMovie} variant="contained">Add Movie</Button>
     </div>
 
   );

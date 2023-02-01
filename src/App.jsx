@@ -33,6 +33,7 @@ import { AddMovie } from "./AddMovie";
 import { Counter } from "./Counter";
 import { Home } from "./Home";
 import { NotFount } from "./NotFount";
+import { BasicForm } from "./BasicForm";
 function App(){
   const Initial_List=[
     {
@@ -125,10 +126,9 @@ function App(){
     }
   ]
   
-  
   const navigate=useNavigate()
   
-const[mode,setMode]=useState("light")
+  const[mode,setMode]=useState("light")
   const darkTheme = createTheme({
     palette: {
       mode: mode,
@@ -138,30 +138,25 @@ const[mode,setMode]=useState("light")
     minHeight:"100vh",
   }
 
- 
-  const [obj, setObject] = useState([]);
-
-  
-  
-
-       return(
+    return(
         <ThemeProvider theme={darkTheme}>
              <Paper style={bpstyles} elevation={3} >
                <div>
         {/*NAV BAR POTTU ATHA CLICK PANNA RENDER AKUM*/}
-        <AppBar position="static">
+      <AppBar position="static">
         <Toolbar>
+
           <Button onClick={()=>navigate("/")} color="inherit">Home</Button>
           <Button onClick={()=>navigate("/movie-list")} color="inherit">Movielist</Button>
           <Button onClick={()=>navigate("/counter")} color="inherit">Like</Button>
           <Button onClick={()=>navigate("/movie/add")} color="inherit">AddMovie</Button>
+          <Button onClick={()=>navigate("/basic-form")} color="inherit">BasicForm</Button>
          < Button sx={{marginLeft:"auto"}} onClick={()=>setMode(mode=== "light" ? "dark" : "light")} color="inherit">
          {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
          {(mode=== "light" ? "dark" : "light")}Mode
           </Button>
-          
-          
-       </Toolbar>
+
+        </Toolbar>
       </AppBar>
                    {/* <nav>
                        <ul>
@@ -183,7 +178,8 @@ const[mode,setMode]=useState("light")
                       <Route  path="/counter"    element={<Counter />} />
                       <Route  path="*"           element={<NotFount />} />
                       <Route  path="/movie-list/:id"    element={<MovieDetails/>}/>
-                      <Route  path="/movie/add"    element={<AddMovie obj={obj} setObject={setObject}  />}/>
+                      <Route  path="/movie/add"    element={<AddMovie   />}/>
+                      <Route  path="/basic-form"    element={< BasicForm  />}/>
                   </Routes>
                   
                 </div>
@@ -192,5 +188,7 @@ const[mode,setMode]=useState("light")
 
               );
 }
+
 //export app
 export default App;
+
