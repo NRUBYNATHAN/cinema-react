@@ -2,10 +2,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Movie } from "./Movie";
 import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AlarmIcon from '@mui/icons-material/Alarm';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 
 export function Movielist () {
   //movie list fetch in API
