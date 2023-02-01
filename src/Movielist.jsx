@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Movie } from "./App";
+import { Movie } from "./Movie";
 
 export function Movielist () {
   //movie list fetch in API
@@ -12,12 +12,15 @@ export function Movielist () {
       .then((mvs) => setObject(mvs));
   }, []);
 
+  const deleteMovie = ()=>{
+    console.log("deleted")
+  }
   return (
     //ithula index and key value ethukuna map panrapo error kattama iruka
     <div>
       {/* <AddMovie obj={obj} setObject={setObject} /> */}
       <div className="movieslist">
-        {obj.map((mv, index) => (<Movie key={index} data={mv} id={index} />))}
+        {obj.map((mv) => (<Movie key={mv.id} data={mv} id={mv.id} DeletteButton={<button onClick={()=>deleteMovie()}>delete</button>}/>))}
       </div>
     </div>
 

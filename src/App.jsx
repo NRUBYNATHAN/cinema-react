@@ -3,22 +3,15 @@ import "./App.css";
 //meterial buttton import
 import Button from '@mui/material/Button';
 //meterial textfield import
-import TextField from '@mui/material/TextField';
 //named import hook
 import {useState} from "react";
 //import iconbutton
-import IconButton from '@mui/material/IconButton';
 //import expand button
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 //import batch  button
-import Badge from '@mui/material/Badge';
 //import card material 
-import Card from '@mui/material/Card';
 //import router
-import { Routes, Route, Link,useParams } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 //import info button
-import InfoIcon from '@mui/icons-material/Info';
 //import useNavigate hook 
 import {useNavigate} from "react-router-dom";
 //navbar meterial
@@ -26,7 +19,6 @@ import AppBar from '@mui/material/AppBar';
 
 import Toolbar from '@mui/material/Toolbar';
 //back space meterial
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 //paper meterial
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -36,6 +28,11 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Movielist } from "./Movielist";
 import {useEffect} from "react";
+import { MovieDetails } from "./MovieDetails";
+import { AddMovie } from "./AddMovie";
+import { Counter } from "./Counter";
+import { Home } from "./Home";
+import { NotFount } from "./NotFount";
 function App(){
   const Initial_List=[
     {
@@ -143,11 +140,7 @@ const[mode,setMode]=useState("light")
 
  
   const [obj, setObject] = useState([]);
-  useEffect(() => {
-    fetch("https://63d870175a330a6ae16865de.mockapi.io/movies")
-      .then((data) => data.json())
-      .then((mvs) => setObject(mvs));
-  }, []);
+
   
   
 
@@ -189,7 +182,7 @@ const[mode,setMode]=useState("light")
                       <Route  path="/movie-list" element={<Movielist/>}/>
                       <Route  path="/counter"    element={<Counter />} />
                       <Route  path="*"           element={<NotFount />} />
-                      <Route  path="/movie-list/:id"    element={<MovieDetails obj={obj}  />}/>
+                      <Route  path="/movie-list/:id"    element={<MovieDetails/>}/>
                       <Route  path="/movie/add"    element={<AddMovie obj={obj} setObject={setObject}  />}/>
                   </Routes>
                   
@@ -199,174 +192,5 @@ const[mode,setMode]=useState("light")
 
               );
 }
-function MovieDetails({obj}){
-  const {id} = useParams();
-  const data=obj[id];
-  const styling={
-    color :data.rating > 8.5 ? "green" : "red"
-  }
-  const navigate=useNavigate()
-  return(
-    <div>
-       <iframe 
-    width="100%" height="650px"
-     src={data.trailer} 
-     title="Michael - Official Trailer (Tamil) | Sundeep Kishan, Vijay Sethupathi | Ranjit Jeyakodi | Sam CS" 
-     frameborder="0" 
-     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-     allowfullscreen>
-
-     </iframe>
-   <div className="moviedetails">
-   
-    <div className="fir">
-    <h1>{data.name}</h1>
-    <p style={styling} className="rate">⭐{data.rating}</p>
-    </div>
-    <p>{data.summary}</p>
-    <Button startIcon={<KeyboardBackspaceIcon />} variant="contained" onClick={()=>navigate(-1)}>back</Button>
-   
-   </div>
-   </div>
-  );
-}
-function NotFount() {
-  return(
-    <div>
-      <img
-          className="notfount"
-          src="https://media.tenor.com/IHdlTRsmcS4AAAAM/404.gif"
-          alt="404 not fount"
-      />
-    </div>
-  );
-}
-function Home() {
-  return(
-    <div>
-      <h1>Welcome to router home page 🎉🎉🎉❤️❤️</h1>
-    </div>
-  );
-}
-function AddMovie({obj,setObject}){
-  const[name,setName]=useState("")
-  const[poster,setPoster]=useState("")
-  const[rating,setRating]=useState("")
-  const[summary,setSummary]=useState("")
-  const[trailer,setTrailer]=useState("")
-  return(
-    <div className="input">
-    <TextField onChange={(event)=>setName(event.target.value)} label="name" variant="outlined" />
-    <TextField onChange={(event)=>setPoster(event.target.value)} label="poster url" variant="outlined" />
-    <TextField onChange={(event)=>setSummary(event.target.value)} label="summary" variant="outlined" />
-    <TextField onChange={(event)=>setRating(event.target.value)} label="Rating" variant="outlined" />
-    <TextField onChange={(event)=>setTrailer(event.target.value)} label="Trailer" variant="outlined" />
-
-  {/*<input onChange={(event)=>setName(event.target.value)} type="text" placeholder="name"/>
-  <input onChange={(event)=>setPoster(event.target.value)} type="text" placeholder="poster"/>
-  <input onChange={(event)=>setSummary(event.target.value)} type="text" placeholder="summary"/>
-  <input onChange={(event)=>setRating(event.target.value)} type="text" placeholder="rating"/> */}
-
-{/*meterial button introduce */}
-
-  {/* <button onClick={()=>{
-  const newMovie= {
-    name:name,
-    poster:poster,
-    summary:summary,
-    rating:rating,};
-    setObject([...obj,newMovie]);
-  }}>Add Movie</button> */}
-  {/* meterial button  */}
-  <Button onClick={()=>{
-  const newMovie= {
-    name:name,
-    poster:poster,
-    summary:summary,
-    rating:rating,
-    trailer:trailer,};
-    setObject([...obj,newMovie]);
-  }} variant="contained">Add Movie</Button>
-  </div>
-
-  );
-}
-export function Movie({data,id}){
-//conditional styling
-  const styling={
-    color :data.rating > 8.5 ? "green" : "red"
-  }
-//conditional styling and hooks
-//manage state,independed,accelarete
-const[show,setShow]=useState(false)
-
-  //derived state,depended,speedo meter
-//  const summarystyle={
-//     display :show ?"block": "none"
-//   }
-// NAVIGATE DECLARATION
-const navigate = useNavigate();
-return(
-
-
-<Card className="movies">
- 
-   <img  className="poster" src={data.poster} alt={data.name}/>
-    
-    <div className="data">
-    <div className="fir">  
-    <h2 className="name">{data.name}</h2>
-
-    <IconButton color="primary" onClick={()=>(setShow(!show))} aria-label="HIDE">
-      {show ? <ExpandLessIcon />: <ExpandMoreIcon/>}
-    </IconButton>
-
-    <IconButton color="primary" onClick={()=>navigate(`/movie-list/${id}`)} aria-label="Movie details ">
-      <InfoIcon/>
-     </IconButton>
-     
-    <p style={styling} className="rate">⭐{data.rating}</p></div>
-  
-    {/* <button onClick={()=>(setShow(!show))}>HIDE</button> */}
-    {/* conditional rendering method*/ }
-    {show ? <p className="sum">{data.summary}</p> : null}
-    
-    {/*conditional styling method
-    <p style={summarystyle} className="sum">{data.summary}</p> */}
-       <Counter/></div>
-</Card>
-
-);
-}
-function Counter() {
-
-
-  const [total, setLike] = useState(0);
-
-  const [total1, setLike1] = useState(0);
-
-  return (
-
-    <div className="like">
-      <IconButton onClick={() => setLike(total + 1)} aria-label="delete" color="primary">
-      <Badge  onClick={() => setLike(total + 1)} badgeContent={total} color="primary">
-         👍
-      </Badge>
-      </IconButton>
-      
-      <IconButton onClick={() => setLike1(total1 + 1)} aria-label="delete" color="error">
-        
-        <Badge  onClick={() => setLike1(total1 + 1)} badgeContent={total1} color="error">
-         👎
-        </Badge>
-      </IconButton>
-
-      {/* <button className="likes" onClick={() => setLike(total + 1)}>👍{total}</button>
-            <button className="likes" onClick={() => setLike1(total1 + 1)}>👎{total1}</button> */}
-
-    </div>
-  );
-}
-
 //export app
 export default App;
