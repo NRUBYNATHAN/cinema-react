@@ -5,6 +5,9 @@ import {useState} from "react"
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import IconButton from '@mui/material/IconButton';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
+
+
 const formValidationSchema=yup.object({
 
  email:
@@ -16,10 +19,14 @@ const formValidationSchema=yup.object({
 export function BasicForm() {
   //object destructuring first line bracket la ullathu
   const {handleSubmit,handleChange,handleBlur,values,touched,errors} = useFormik({
+
     initialValues:{email:"",password:""},
+
     validationSchema : formValidationSchema,
+
     onSubmit:(values)=>console.log("form value",values),
   });
+  
 const[on,setOn]=useState(true)
   return (
    <form onSubmit={handleSubmit}>
