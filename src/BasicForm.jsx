@@ -1,7 +1,10 @@
 
 import { useFormik } from "formik";
 import * as yup from "yup";
-
+import {useState} from "react"
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import IconButton from '@mui/material/IconButton';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const formValidationSchema=yup.object({
 
  email:
@@ -17,7 +20,7 @@ export function BasicForm() {
     validationSchema : formValidationSchema,
     onSubmit:(values)=>console.log("form value",values),
   });
-
+const[on,setOn]=useState(true)
   return (
    <form onSubmit={handleSubmit}>
 
@@ -36,8 +39,13 @@ export function BasicForm() {
     onChange={handleChange}
     onBlur={handleBlur}
     value={values.password}
-    type="password"
-    placeholder="password"/>
+    type= {(on === true ?"password" : 'text')}
+    placeholder="password" 
+   
+    />
+     {<IconButton onClick={()=>setOn(!on)} aria-label="HIDE">
+    {on ? <VisibilityOffIcon /> :<VisibilityIcon />  }
+      </IconButton>}
 
 {touched.password && errors.password ?errors.password : null}
 
