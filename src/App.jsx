@@ -174,16 +174,14 @@ function App(){
                   </nav> */}
          {/*ROUTER INTRODUCE*/}
                   <Routes>
-                      <Route  path="/"           element={<Home />} />
-                      <Route  path="/movie-list" element={<Movielist/>}/>
-                      <Route  path="/counter"    element={<Counter />} />
-                      <Route  path="*"           element={<NotFount />} />
+                      <Route  path="/"                  element={<Home />} />
+                      <Route  path="/movie-list"        element={<Movielist/>}/>
+                      <Route  path="/counter"           element={<Counter />} />
+                      <Route  path="*"                  element={<NotFount />} />
                       <Route  path="/movie-list/:id"    element={<MovieDetails/>}/>
-                     
                       <Route  path="/movie-list/edit/:id"    element={<EditMovie/>}/>
-
-                      <Route  path="/movie/add"    element={<AddMovie   />}/>
-                      <Route  path="/basic-form"    element={< BasicForm  />}/>
+                      <Route  path="/movie/add"         element={<AddMovie   />}/>
+                      <Route  path="/basic-form"        element={< BasicForm  />}/>
                   </Routes>
                   
                 </div>
