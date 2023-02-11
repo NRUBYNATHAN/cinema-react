@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { Movie } from "./Movie";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate } from "react-router-dom";
 
 export function Movielist () {
   //movie list fetch in API
@@ -29,6 +30,7 @@ const getMovies=()=>{
     });
     getMovies();
   }
+  const navigate=useNavigate()
   return (
     //ithula index and key value ethukuna map panrapo error kattama iruka
     <div>
@@ -41,7 +43,12 @@ const getMovies=()=>{
         DeletteButton={  
         <IconButton  color="error" onClick={()=>deleteMovie(mv.id)} aria-label="delete">
         <DeleteIcon />
-        </IconButton>}/>))}
+        </IconButton>}
+         EditButton={  
+          <IconButton  color="secondary" onClick={()=>navigate(`/movie-list/edit/${mv.id}`)} aria-label="edit movie">
+          <EditIcon />
+          </IconButton>}
+        />))}
       </div>
     </div>
 

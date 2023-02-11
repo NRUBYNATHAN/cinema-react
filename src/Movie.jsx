@@ -7,7 +7,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from "react-router-dom";
 import { Counter } from "./Counter";
 
-export function Movie({ data, id,DeletteButton }) {
+export function Movie({ data, id,DeletteButton,EditButton }) {
   //conditional styling
   const styling = {
     color: data.rating > 8.5 ? "green" : "red"
@@ -50,7 +50,7 @@ export function Movie({ data, id,DeletteButton }) {
         {/*conditional styling method
             <p style={summarystyle} className="sum">{data.summary}</p> */}
         <div className="like">
-          <Counter /> {DeletteButton}
+          <Counter /> {DeletteButton} {EditButton}
           </div>
         </div>
     </Card>

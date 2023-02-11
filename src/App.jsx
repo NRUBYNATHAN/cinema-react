@@ -34,6 +34,7 @@ import { Counter } from "./Counter";
 import { Home } from "./Home";
 import { NotFount } from "./NotFount";
 import { BasicForm } from "./BasicForm";
+import { EditMovie } from "./EditMovie";
 function App(){
   // const Initial_List=[
   //   {
@@ -178,6 +179,9 @@ function App(){
                       <Route  path="/counter"    element={<Counter />} />
                       <Route  path="*"           element={<NotFount />} />
                       <Route  path="/movie-list/:id"    element={<MovieDetails/>}/>
+                     
+                      <Route  path="/movie-list/edit/:id"    element={<EditMovie/>}/>
+
                       <Route  path="/movie/add"    element={<AddMovie   />}/>
                       <Route  path="/basic-form"    element={< BasicForm  />}/>
                   </Routes>
@@ -188,7 +192,6 @@ function App(){
 
               );
 }
-
-//export app
+ //export app
 export default App;
 
