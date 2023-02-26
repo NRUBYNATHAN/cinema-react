@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { API } from './global';
 
 export function AddMovie() {
   const formValidationSchema=yup.object({
@@ -49,7 +50,7 @@ export function AddMovie() {
       //   rating: rating,
       //   trailer: trailer,
       // };
-      fetch("https://63d870175a330a6ae16865de.mockapi.io/movies",{
+      fetch(`${API}`,{
         method:"POST",
         body:JSON.stringify(newMovie),
         headers:{"Content-Type": "application/json",},
