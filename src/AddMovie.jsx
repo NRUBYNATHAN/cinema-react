@@ -52,7 +52,7 @@ export function AddMovie() {
       // };
       fetch(`${API}`,{
         method:"POST",
-        body:JSON.stringify([{newMovie}]),
+        body:JSON.stringify([newMovie]),
         headers:{"Content-Type": "application/json",},
         
       });
