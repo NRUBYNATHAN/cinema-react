@@ -19,13 +19,13 @@ export function AddMovie() {
    
   const {handleSubmit,handleChange,handleBlur,values,touched,errors} = useFormik({
 
-    initialValues:[{
+    initialValues:{
         name: "",
         poster: "",
         summary: "",
         Rating: "",
         Trailer: "",
-    }],
+    },
 
     validationSchema : formValidationSchema,
 
@@ -52,7 +52,7 @@ export function AddMovie() {
       // };
       fetch(`${API}`,{
         method:"POST",
-        body:JSON.stringify(newMovie),
+        body:JSON.stringify([newMovie]),
         headers:{"Content-Type": "application/json",},
         
       });
