@@ -19,13 +19,13 @@ export function AddMovie() {
    
   const {handleSubmit,handleChange,handleBlur,values,touched,errors} = useFormik({
 
-    initialValues:{
+    initialValues:[{
         name: "",
         poster: "",
         summary: "",
         Rating: "",
         Trailer: "",
-    },
+    }],
 
     validationSchema : formValidationSchema,
 
