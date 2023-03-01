@@ -59,7 +59,7 @@ function EditMovieForm({Movie}){
   const ubdateMovie=async (newMovie)=>{
     
     
-      fetch(`${API}/${Movie.id}`,{
+      fetch(`${API}/${Movie._id}`,{
         method:"PUT",
         body:JSON.stringify(newMovie),
         headers:{"Content-Type": "application/json",},
