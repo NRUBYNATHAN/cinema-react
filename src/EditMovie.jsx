@@ -42,7 +42,7 @@ function EditMovieForm({Movie}){
         name: Movie.name  ,   
         poster:Movie.poster, 
         summary:Movie.summary,
-        Rating:Movie.rating,
+        Rating:Movie.Rating,
         Trailer: Movie.trailer,
     },
 

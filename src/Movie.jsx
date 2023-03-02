@@ -41,7 +41,7 @@ export function Movie({ data, id,DeletteButton,EditButton }) {
             <InfoIcon />
           </IconButton>
 
-          <p style={styling} className="rate">⭐{data.rating}</p></div>
+          <p style={styling} className="rate">⭐{data.Rating}</p></div>
 
         {/* <button onClick={()=>(setShow(!show))}>HIDE</button> */}
         {/* conditional rendering method*/}

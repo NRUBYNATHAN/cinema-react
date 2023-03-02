@@ -12,7 +12,7 @@ export function Movielist () {
   const [obj, setObject] = useState([]);
 
 const getMovies=()=>{
-  fetch(`${API}/`)
+  fetch(`${API}`)
       .then((data) => data.json())
       .then((mvs) => setObject(mvs));
 }
@@ -42,11 +42,11 @@ const getMovies=()=>{
         data={mv} 
         id={mv._id} 
         DeletteButton={  
-        <IconButton  color="error" onClick={()=>deleteMovie(mv.id)} aria-label="delete">
+        <IconButton  color="error" onClick={()=>deleteMovie(mv._id)} aria-label="delete">
         <DeleteIcon />
         </IconButton>}
          EditButton={  
-          <IconButton  color="secondary" onClick={()=>navigate(`/movie-list/edit/${mv.id}`)} aria-label="edit movie">
+          <IconButton  color="secondary" onClick={()=>navigate(`/movie-list/edit/${mv._id}`)} aria-label="edit movie">
           <EditIcon />
           </IconButton>}
         />))}
